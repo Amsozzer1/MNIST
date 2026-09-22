@@ -1,11 +1,18 @@
-# digit-recognition
+# MNIST
 
 A convolutional neural network for MNIST handwritten-digit classification, written from
-scratch in pure Python — no NumPy, no PyTorch, no TensorFlow in the network itself. Every
-matrix multiply, convolution, ReLU, softmax and gradient is implemented by hand in
+scratch — no PyTorch, no TensorFlow, no autograd. Every matrix multiply, convolution,
+ReLU, softmax and gradient is implemented by hand over plain Python lists in
 [matrix.py](matrix.py) and [utils.py](utils.py).
 
+NumPy and Pillow are in the requirements, but only at the edges: writing feature maps and
+weight matrices out as PNGs, and one `-inf` in [infer.py](infer.py). Nothing in the
+network math goes through them.
+
 The point is to understand a CNN by building one, not to be fast.
+
+Written up, with the layer diagram and the parameter count, at
+[amsozzer.com/projects/mnist](https://amsozzer.com/projects/mnist).
 
 ## Status
 
@@ -112,8 +119,8 @@ library alone, so there is nothing to install for the data itself.
 ## Quick start
 
 ```bash
-git clone https://github.com/<your-username>/digit-recognition.git
-cd digit-recognition
+git clone https://github.com/Amsozzer1/MNIST.git
+cd MNIST
 
 # Inspect the dataset — downloads ~10 MB into mnist_data/ on first run
 python mnist_loader.py
